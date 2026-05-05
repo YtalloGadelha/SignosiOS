@@ -14,8 +14,11 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configuraSignos()
+    }
+    
+    func configuraSignos() {
         
-        //configura signos
         signos.append("Áries")
         signos.append("Touro")
         signos.append("Gêmeos")
@@ -29,7 +32,6 @@ class ViewController: UITableViewController {
         signos.append("Aquário")
         signos.append("Peixes")
         
-        //configura significados
         significadoSignos.append("O ariano é uma pessoa cheia de energia e entusiasmo. Pioneiro e aventureiro, lhe encantam as metas, a liberdade e as idéias novas.")
         significadoSignos.append("Zeloso e possessivo, pode tender a ser inflexível e ressentido. As vezes pecam de ser cobiçosos e de permitir-se tudo.")
         significadoSignos.append("Versátil, curioso, divertido e quer experimentar tudo o que existe no mundo, então a sua companhia nunca é chata ou entediante.")
@@ -61,6 +63,7 @@ class ViewController: UITableViewController {
         celula.textLabel?.text = signos[indexPath.row]
         
         return celula
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -72,6 +75,7 @@ class ViewController: UITableViewController {
         
         alertaController.addAction(acaoConfirmar)
         present(alertaController, animated: true, completion: nil)
+        
     }
     
 }
