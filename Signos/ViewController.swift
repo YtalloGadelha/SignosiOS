@@ -70,11 +70,31 @@ class ViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let alertaController = UIAlertController(title: "Significado do signo", message: significadoSignos[indexPath.row], preferredStyle: .alert)
-        let acaoConfirmar = UIAlertAction(title: "OK", style: .default, handler: nil)
+        /*let alertaController = UIAlertController(title: "Significado do signo", message: significadoSignos[indexPath.row], preferredStyle: .alert)
+        //let acaoConfirmar = UIAlertAction(title: "OK", style: .default, handler: nil)
         
-        alertaController.addAction(acaoConfirmar)
-        present(alertaController, animated: true, completion: nil)
+        //alertaController.addAction(acaoConfirmar)
+        //present(alertaController, animated: true, completion: nil)*/
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "detalheSigno" {
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                
+                let signoSelecionado = signos[indexPath.row]
+                let significadoSelecionado = significadoSignos[indexPath.row]
+                
+                let destinoVC = segue.destination as! DetalheViewController
+                
+                destinoVC.signo = signoSelecionado
+                destinoVC.detalheSigno = significadoSelecionado
+                
+            }
+            
+        }
         
     }
     
